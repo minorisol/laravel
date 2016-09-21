@@ -5,14 +5,14 @@
 
 ## Composerの使用
 
-Composerがインストールされていることが前提やけんね。
+Composerがインストールされていることが前提やけんね。  
 <https://getcomposer.org/>
 
 `curl -sS https://getcomposer.org/installer | php`
 
 ## GitHubのクローン
 
-コピペしたが楽かよ。
+コピペしたが楽かよ。  
 <https://github.com/minorisol/laravel>
 
 `git clone https://github.com/minorisol/laravel.git`
@@ -35,12 +35,10 @@ Cloud9やったらココば変えるとよ。
 既にDB用意してるんなら、ここ飛ばしてもよかばい。
 rootはどうかと思うけど、とりあえず動けばよかろーもん...
 
-`
-    mysql-ctl start
-    mysql -u root
-    create database ＜DB名＞;
-    grant all on DB名.*  to root@localhost identified by '＜パスワード＞';
-`
+```mysql-ctl start  
+mysql -u root  
+create database ＜DB名＞;  
+grant all on DB名.*  to root@localhost identified by '＜パスワード＞';```
 
 ## 設定ファイル（.env）を作成
 
@@ -52,28 +50,26 @@ APP_KEYの生成はコレ一発やけん。
 
 追加したとこだけ言っとくけん。
 
-`
-    ...
-    API_PUSH=APIKeyOfPushcrew
-    API_WEATHER=APIKeyOfWeatherUnderground
-    ...
-    MAIL_FROM_ADDRESS=null
-    MAIL_FROM_NAME=null
-    MAIL_PRETEND=false
-`
+```...  
+API_PUSH=APIKeyOfPushcrew  
+API_WEATHER=APIKeyOfWeatherUnderground  
+...  
+MAIL_FROM_ADDRESS=null  
+MAIL_FROM_NAME=null  
+MAIL_PRETEND=false```
 
-**API_PUSH**
-  プッシュ通知をしてくれる「Pushcrew」っちゅ～サイトに登録して取得するAPIキー。
+**API_PUSH**  
+プッシュ通知をしてくれる「Pushcrew」っちゅ～サイトに登録して取得するAPIキー。
 
-**API_WEATHER**
-  「Weather Underground」っちゅ～お天気サイトに登録して取得するAPIキー。
+**API_WEATHER**  
+「Weather Underground」っちゅ～お天気サイトに登録して取得するAPIキー。
 
-**MAIL_FROM_ADDRESS と MAIL_FROM_NAME**
-  面倒くさいけん、送信元メールドレスと送信者名をココで設定しちゃろっか。
+**MAIL_FROM_ADDRESS と MAIL_FROM_NAME**  
+面倒くさいけん、送信元メールドレスと送信者名をココで設定しちゃろっか。
 
-**MAIL_PRETEND**
-  メールのデバッグモードみたいなやつ。
-  falseだとそのまま送信。trueだとログにメールの内容を出力。
+**MAIL_PRETEND**  
+メールのデバッグモードみたいなやつ。
+falseだとそのまま送信。trueだとログにメールの内容を出力。
 
 ## DBにテーブル作成
 
