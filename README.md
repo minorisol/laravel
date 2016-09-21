@@ -32,13 +32,14 @@ Cloud9やったらココば変えるとよ。
 
 ## MySQLの設定
 
-既にDB用意してるんなら、ここ飛ばしてもよかばい。
+既にDB用意してるんなら、ここ飛ばしてもよかばい。  
 rootはどうかと思うけど、とりあえず動けばよかろーもん...
 
 ```mysql-ctl start  
 mysql -u root  
 create database ＜DB名＞;  
-grant all on DB名.*  to root@localhost identified by '＜パスワード＞';```
+grant all on DB名.*  to root@localhost identified by '＜パスワード＞';
+```
 
 ## 設定ファイル（.env）を作成
 
@@ -56,7 +57,8 @@ API_WEATHER=APIKeyOfWeatherUnderground
 ...  
 MAIL_FROM_ADDRESS=null  
 MAIL_FROM_NAME=null  
-MAIL_PRETEND=false```
+MAIL_PRETEND=false
+```
 
 **API_PUSH**  
 プッシュ通知をしてくれる「Pushcrew」っちゅ～サイトに登録して取得するAPIキー。
@@ -68,7 +70,7 @@ MAIL_PRETEND=false```
 面倒くさいけん、送信元メールドレスと送信者名をココで設定しちゃろっか。
 
 **MAIL_PRETEND**  
-メールのデバッグモードみたいなやつ。
+メールのデバッグモードみたいなやつ。  
 falseだとそのまま送信。trueだとログにメールの内容を出力。
 
 ## DBにテーブル作成
