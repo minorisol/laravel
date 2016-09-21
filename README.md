@@ -36,10 +36,10 @@ Cloud9やったらココば変えるとよ。
 rootはどうかと思うけど、とりあえず動けばよかろーもん...
 
 ```html:command
-    mysql-ctl start  
-    mysql -u root  
-    create database ＜DB名＞;  
-    grant all on DB名.*  to root@localhost identified by '＜パスワード＞';
+mysql-ctl start  
+mysql -u root  
+create database ＜DB名＞;  
+grant all on DB名.*  to root@localhost identified by '＜パスワード＞';
 ```
 
 ## 設定ファイル（.env）を作成
