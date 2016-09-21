@@ -1,6 +1,6 @@
 # laravel
 
-オンラインIDEのCloud9を使用した例です。
+オンラインIDEのCloud9を使用した例です。  
 <https://c9.io/>
 
 ## Composerの使用
