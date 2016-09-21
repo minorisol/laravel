@@ -35,10 +35,11 @@ Cloud9やったらココば変えるとよ。
 既にDB用意してるんなら、ここ飛ばしてもよかばい。  
 rootはどうかと思うけど、とりあえず動けばよかろーもん...
 
-```mysql-ctl start  
-mysql -u root  
-create database ＜DB名＞;  
-grant all on DB名.*  to root@localhost identified by '＜パスワード＞';
+```html:command
+    mysql-ctl start  
+    mysql -u root  
+    create database ＜DB名＞;  
+    grant all on DB名.*  to root@localhost identified by '＜パスワード＞';
 ```
 
 ## 設定ファイル（.env）を作成
@@ -51,7 +52,9 @@ APP_KEYの生成はコレ一発やけん。
 
 追加したとこだけ言っとくけん。
 
-```...  
+
+```html:command
+...  
 API_PUSH=APIKeyOfPushcrew  
 API_WEATHER=APIKeyOfWeatherUnderground  
 ...  
