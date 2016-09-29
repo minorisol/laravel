@@ -13,7 +13,7 @@
     <canvas id="canvas" width="1980" height="280" style="width:1980px;height:280px;"></canvas>
     <table width="1980">
         <tr>
-            <td width="40"></td>
+            <td width="30"></td>
             @foreach($hourly as $hour)
             <td align="center" valign="top">
                 <img src="{!! $hour['icon_url'] !!}" width="80%" /><br />
@@ -22,7 +22,7 @@
                 <span class="text-info"><font size="1"><i class="fa fa-umbrella"></i> {!! $hour['pop'] !!} %</font></span><br />
             </td>
             @endforeach
-            <td width="25"></td>
+            <td width="20"></td>
         </tr>
     </table>
 </div>

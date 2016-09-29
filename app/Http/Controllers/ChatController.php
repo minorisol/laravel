@@ -26,10 +26,11 @@ class ChatController extends Controller
 	public function __construct()
 	{
 		$this->middleware('auth');
+		$this->chat = new Chat;
 	}
 	
     /**
-     * Display a listing of the resource.
+     * チャット画面表示
      *
      * @return \Illuminate\Http\Response
      */
@@ -41,7 +42,7 @@ class ChatController extends Controller
     }
     
     /**
-     * Show the form for creating a new resource.
+     * グループ作成
      *
      * @return \Illuminate\Http\Response
      */
@@ -50,23 +51,18 @@ class ChatController extends Controller
         // データ取得
         $input = $request->only('user_id');
         $ids = $input['user_id'];
-        
         if (count($ids) > 0) {
-        
             // フレンド判定
             if ($this->isFriend($ids)) {
-                
                 // 自分を含めてグループ検索
                 $ids[] = auth()->user()->id;
                 $chat = $this->isGroup($ids);
-                
                 // グループ存在確認
                 if (!$chat) {
                     // マスタ作成
                     $data['subscriber'] = Str::random(32);
                     $chat = Chat::create($data);
                     $data['chat_id'] = $chat->id;
-                    
                     // グループ作成
                     foreach ($ids as $id) {
                         $data['user_id'] = $id;
@@ -79,8 +75,7 @@ class ChatController extends Controller
         } else {
             return back();
         }
-        
-        return view('chat.show');
+        return redirect('/chat/show/' . $chat->subscriber);
     }
 
     /**
@@ -110,7 +105,7 @@ class ChatController extends Controller
      */
     public function show($id)
     {
-        return view("chat.show");
+        return view("chat.show", compact('id'));
     }
 
     /**
@@ -131,9 +126,10 @@ class ChatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        return response()->json(Chat::WhereSubscriber($id)->ChatMessage()->orderBy("created_at", "DESC")->take(5)->get());
+        $chat = Chat::whereSubscriber($id)->first();
+        return response()->json($chat->ChatMessage()->orderBy("created_at", "DESC")->take(5)->get());
     }
 
     /**
@@ -174,7 +170,7 @@ class ChatController extends Controller
      */
     public function isGroup($ids)
     {
-        $group = ChatGroup::whereIn('user_id', $ids)->get();
+        $group = $this->chat->ChatGroup()->whereIn('user_id', $ids)->get();
         if (count($ids) == count($group)) {
             $res = $group;
         } else {

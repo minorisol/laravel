@@ -43,8 +43,8 @@ Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 // チャット
 Route::get('chat', 'ChatController@index');
-Route::get('chat/show', 'ChatController@getChat');
-Route::get('chat/update', 'ChatController@update');
+Route::get('chat/show/{id}', 'ChatController@show');
+Route::get('chat/update/{id}', 'ChatController@update');
 Route::post('chat/create', 'ChatController@create');
 Route::post('chat/store', 'ChatController@store');
 

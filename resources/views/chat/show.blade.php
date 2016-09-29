@@ -55,6 +55,10 @@ $('#send').click(function() {
     });
 });
 
+$.get("/chat/update/{{ $id }}", function (data) {
+    console.log(data);
+});
+
 /* 
 $.get("/chat/messages", function (messages) {
     refreshMessages(messages)
