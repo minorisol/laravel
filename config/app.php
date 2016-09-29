@@ -149,6 +149,7 @@ return [
          * Add Application Service Providers...
          */
         Intervention\Image\ImageServiceProvider::class,
+        Kryptonit3\Pusher\PusherServiceProvider::class,
         
     ],
 

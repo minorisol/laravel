@@ -23,8 +23,7 @@ class VerifyConfirmed
         {
             if(is_null($user->confirmed_at) || empty($user->confirmed_at) || strlen($user->confirmed_at) == 0)
             {
-                Session::flash('flash_message', Lang::get('auth.activate'));
-                return back()->withInput($request->only('email'));
+                return back()->withInput($request->only('email'))->withErrors(['file' => trans('auth.activate')]);
             }
         }
         return $next($request);

@@ -87,6 +87,16 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasOne('App\Profile', 'user_id', 'id');
     }
     
+    public function ChatGroup()
+    {
+        return $this->belongsTo('App\ChatGroup', 'user_id', 'id');
+    }
+    
+    public function ChatMessage()
+    {
+        return $this->belongsTo('App\ChatMessage', 'user_id', 'id');
+    }
+    
     public function Friend()
     {
         return $this->belongsTo('App\Friend', 'friend_id', 'id');

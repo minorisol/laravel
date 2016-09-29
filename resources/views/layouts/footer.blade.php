@@ -27,23 +27,25 @@ $(function(){
     // リンクをクリックした場
     $('a[href]').each(function(){
         var url = $(this).attr('href');
-        $(this).removeAttr('href');
-        $(this).click(function(){
-            $("#wrap").addClass("blur");
-            $("#loading").addClass("progress");
-            $(".col-md-12.content").removeClass("fadeInLeft");
-            $(".col-md-12.content").addClass("fadeOutLeft");
-            if(url == '[BACK]'){
-                setTimeout(function(){window.history.back();}, 1000);
-            } else {
-                location.href = url;
-            }
-        });
+        if (url.indexOf('#') == -1) {
+            $(this).removeAttr('href');
+            $(this).click(function(){
+                $("#wrap").addClass("blur");
+                $("#loading").addClass("progress");
+                $(".col-md-12.content").removeClass("fadeInLeft");
+                $(".col-md-12.content").addClass("fadeOutLeft");
+                if(url == '[BACK]'){
+                    setTimeout(function(){window.history.back();}, 1000);
+                } else {
+                    location.href = url;
+                }
+            });
+        }
     });
     // ボタンをクリックした場合
     $('[type="submit"]').each(function() {
         $(this).click(function(){
-            if(!$('form').has('.has-error')) {
+            if (!$('form').has('.has-error')) {
                 $("#wrap").addClass("blur");
                 $("#loading").addClass("progress");
                 $(".col-md-12.content").removeClass("fadeInLeft");

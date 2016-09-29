@@ -12,7 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    
     'failed' => '不正なアクセスを検知しました。',
     'file_upload_success' => 'ファイルをアップロードしました。',
     'file_upload_error' => 'ファイルをアップロードに失敗しました。',
@@ -29,6 +29,8 @@ return [
     'friend_notfind_error' => 'ユーザーが見つかりませんでした。',
     'friend_push_title' => 'フレンドに登録されました',
     'friend_push_message' => 'あなたのアカウントがフレンド登録されました。',
+    
+    'chat_group_error' => 'フレンドの選択が不正です。チャットを開始できません。',
     
     'weather_error' => '天気を取得できませんでした。',
 ];

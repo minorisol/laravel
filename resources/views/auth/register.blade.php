@@ -25,43 +25,27 @@
         </div>
     @endif
 
-    <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
+    <form class="bs-component" role="form" method="POST" action="{{ url('/auth/register') }}">
         {!! csrf_field() !!}
-
-        <div class="form-group">
-            <label class="col-md-4 control-label">ユーザー名</label>
-            <div class="col-md-6">
-                <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="example">
-            </div>
+        <div class="form-group label-floating">
+            <label class="control-label" for="name">ユーザー名</label>
+            <input class="form-control" id="name" type="text" name="name" value="{{ old('name') }}" />
         </div>
-
-        <div class="form-group">
-            <label class="col-md-4 control-label">メールアドレス</label>
-            <div class="col-md-6">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="example@sampledomain.com">
-            </div>
+        <div class="form-group label-floating">
+            <label class="control-label" for="email">メールアドレス</label>
+            <input class="form-control" id="email" type="email" name="email" value="{{ old('email') }}" />
         </div>
-
-        <div class="form-group">
-            <label class="col-md-4 control-label">パスワード</label>
-            <div class="col-md-6">
-                <input type="password" class="form-control" name="password" placeholder="********">
-            </div>
+        <div class="form-group label-floating">
+            <label class="control-label" for="password">パスワード</label>
+            <input class="form-control" id="password" type="password" name="password" value="{{ old('password') }}" />
         </div>
-
-        <div class="form-group">
-            <label class="col-md-4 control-label">パスワード（確認用）</label>
-            <div class="col-md-6">
-                <input type="password" class="form-control" name="password_confirmation" placeholder="********">
-            </div>
+        <div class="form-group label-floating">
+            <label class="control-label" for="password_confirmation">パスワード（確認用）</label>
+            <input class="form-control" id="password_confirmation" type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" />
         </div>
-
         <div class="form-group">
-            <div class="col-md-6 col-md-offset-4">
-                <button type="submit" class="btn btn-raised btn-primary">登録する</button>
-                <a class="btn btn-raised btn-default" href="{{ url('/auth/resend') }}">登録確認メールを再送する</a>
-                <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
-            </div>
+            <button type="submit" class="btn btn-raised btn-primary"><i class="fa fa-user"></i> 登録する</button>
+            <a class="btn btn-raised btn-default" href="{{ url('/auth/resend') }}"><i class="fa fa-send"></i> 登録確認メールを再送する</a>
         </div>
     </form>
 </div>
@@ -87,11 +71,8 @@ $(document).ready(function() {
                     notEmpty: {
                     },
                     stringLength: {
-                        min: 6,
+                        min: 2,
                         max: 30
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9]+$/
                     }
                 }
             },

@@ -18,11 +18,6 @@ Route::get('/', function () {
 Route::get('home', 'HomeController@index');
 Route::get('bookmark/{token}', 'HomeController@bookmark');
 
-// ログイン、ログアウト
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
 // ユーザ登録
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
@@ -35,11 +30,23 @@ Route::post('auth/confirm', 'Auth\AuthController@postConfirm');
 Route::get('auth/resend', 'Auth\AuthController@getResend');
 Route::post('auth/resend', 'Auth\AuthController@postResend');
 
+// ログイン、ログアウト
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
 // パスワードリセット
 Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+// チャット
+Route::get('chat', 'ChatController@index');
+Route::get('chat/show', 'ChatController@getChat');
+Route::get('chat/update', 'ChatController@update');
+Route::post('chat/create', 'ChatController@create');
+Route::post('chat/store', 'ChatController@store');
 
 // パスワード管理
 Route::get('pm', 'PasswordManagerController@index');

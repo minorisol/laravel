@@ -17,16 +17,16 @@
                 <ul class="nav navbar-nav navbar-right">
                 @if(auth()->guest())
                     @if(!Request::is('auth/login'))
-                        <li><a href="{{ url('/auth/login') }}">ログイン</a></li>
+                        <li><a href="{{ url('/auth/login') }}"><i class="fa fa-sign-in"></i> ログイン</a></li>
                     @endif
                     @if(!Request::is('auth/register'))
-                        <li><a href="{{ url('/auth/register') }}">登録</a></li>
+                        <li><a href="{{ url('/auth/register') }}"><i class="fa fa-user"></i> 登録</a></li>
                     @endif
                 @else
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/auth/logout') }}">ログアウト</a></li>
+                            <li><a href="{{ url('/auth/logout') }}"><i class="fa fa-sign-out"></i> ログアウト</a></li>
                         </ul>
                     </li>
                 @endif

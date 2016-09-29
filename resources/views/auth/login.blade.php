@@ -15,44 +15,31 @@
 <div class="panel-heading">ログイン</div>
 <div class="panel-body">
     @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <strong>おっと!</strong> いくつかの入力に問題があります。<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="alert alert-danger">
+        <strong>おっと!</strong> いくつかの入力に問題があります。<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
-    <form class="form-horizontal" role="form" method="POST" action="{{ secure_url('/auth/login') }}">
+    <form class="bs-component" role="form" method="POST" action="{{ secure_url('/auth/login') }}">
         {!! csrf_field() !!}
-        <div class="form-group">
-            <label class="col-md-4 control-label">メールアドレス</label>
-            <div class="col-md-6">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-            </div>
+        <div class="form-group label-floating">
+            <label class="control-label" for="email">メールアドレス</label>
+            <input class="form-control" id="email" type="email" name="email" value="{{ old('email') }}" />
+        </div>
+        <div class="form-group label-floating">
+            <label class="control-label" for="password">パスワード</label>
+            <input class="form-control" id="password" type="password" name="password" value="{{ old('password') }}" />
         </div>
         <div class="form-group">
-            <label class="col-md-4 control-label">パスワード</label>
-            <div class="col-md-6">
-                <input type="password" class="form-control" name="password">
+            <div class="checkbox">
+                <label><input type="checkbox" name="remember" /> パスワードを記憶する</label>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-6 col-md-offset-4">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="remember"> パスワードを記憶する
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-6 col-md-offset-4">
-                <button type="submit" class="btn btn-raised btn-primary">ログイン</button>
-                <a class="btn btn-raised btn-default" href="{{ url('/password/email') }}">パスワードを忘れた方はこちら</a>
-                <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
-            </div>
+            <button type="submit" class="btn btn-raised btn-primary"><i class="fa fa-sign-in"></i> ログイン</button>
+            <a class="btn btn-raised btn-default" href="{{ url('/password/email') }}"><i class="fa fa-key"></i> パスワードを忘れた方はこちら</a>
         </div>
     </form>
 </div>

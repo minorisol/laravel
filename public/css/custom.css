@@ -34,10 +34,29 @@ a {
     left: 0;
     bottom: 0;
     width: 240px;
+    height: 100%;
+    max-height: 100%;
+    overflow: visible;
+    overflow-y: auto;
     color: #fff;
-    background: #3f51b5;
+    background: #ddd;
     -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sidebar.left .list-group {
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #3f51b5;
+    position: relative;
+}
+
+.sidebar.left .list-group i.toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
 }
 
 .list-group .list-group-item .row-picture {
@@ -49,11 +68,8 @@ a {
 }
 
 .menu {
-    height: 100%;
-    overflow: auto;
     padding: 0;
     color: #333;
-    background: #ddd;
 }
 
 .menu, .menu * {
@@ -222,3 +238,62 @@ a {
   100% {
     left: 107%;
     right: -8%; } }
+
+.panel-footer .pager {
+    margin: 0;
+}
+
+/* talk */
+.talk {
+    padding: 20px;
+}
+
+.talk:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.talk .left,
+.talk .right {
+    clear: both;
+    position: relative;
+    max-width: 80%;
+    padding: 10px 20px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+}
+
+.talk .left:before,
+.talk .right:before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-top: 2px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+.talk .left {
+    float: left;
+    background-color: #f5f5f5;
+}
+.talk .left:before {
+    border-right: 10px solid #f5f5f5;
+    left: -14px;
+}
+
+.talk .right {
+    float: right;
+    color: #ffffff;
+    background-color: #3f51b5;
+}
+.talk .right:before {
+    border-left: 10px solid #3f51b5;
+    right: -14px;
+}

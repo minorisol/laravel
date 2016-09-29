@@ -13,7 +13,6 @@ class CreatePushTable extends Migration
     public function up()
     {
         Schema::create('push', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('user_id');
             $table->string('subscriber')->index();
             $table->timestamps();

@@ -13,9 +13,9 @@ class AddToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->timestamp('deleted_at')->nullable();
-            $table->timestamp('confirmed_at')->nullable();
-            $table->string('role',16);
+            $table->string('role',16)->after('password')->default('user');
+            $table->timestamp('confirmed_at')->after('updated_at')->nullable();
+            $table->softDeletes()->after('confirmed_at');
         });
     }
 
@@ -28,9 +28,9 @@ class AddToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn([
-                'deleted_at',
-                'confirmed_at',
                 'role',
+                'confirmed_at',
+                'deleted_at',
             ]);
         });
     }

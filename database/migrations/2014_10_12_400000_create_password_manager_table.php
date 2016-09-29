@@ -16,7 +16,7 @@ class CreatePasswordManagerTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('title')->index();
-            $table->string('account_id')->index();
+            $table->string('account')->index();
             $table->string('password')->index();
             $table->string('url')->index();
             $table->text('remark');

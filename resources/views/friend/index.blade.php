@@ -20,7 +20,9 @@
                 @endif
             </div>
             <div class="row-content">
-                <div class="least-content"><button type="button" data-href="/friend/destroy/{{ $data->id }}" id="delete" class="btn btn-raised btn-xs btn-danger"><i class="fa fa-remove"></i> 削除</a></button>
+                <div class="least-content">
+                    <button type="button" data-href="/friend/destroy/{{ $data->id }}" id="delete" class="btn btn-raised btn-xs btn-danger"><i class="fa fa-remove"></i> 削除</a></button>
+                </div>
                 <h4 class="list-group-item-heading">{{ $data->user->name }}</h4>
                 <p class="list-group-item-text">{{ $data->user->profile->message }}</p>
             </div>
@@ -29,10 +31,8 @@
         @empty
         現在フレンドがいません。
         @endforelse
+        {{ $datas->render() }}
     </div>
-</div>
-<div class="panel-footer">
-    {{ $datas->render() }}
 </div>
 
 <div class="panel-heading">フレンドを招待する</div>
@@ -68,11 +68,6 @@
             </div>
         </div>
     </form>
-    <div class="form-group">
-        <div class="col-md-6 col-md-offset-4">
-            <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
-        </div>
-    </div>
 </div>
 @endsection
 

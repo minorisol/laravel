@@ -61,16 +61,17 @@ class AuthController extends Controller
         
         // ユーザ登録
         $data['password'] = bcrypt($data['password']);
-        $data['role'] = 'user';
         $user = User::create($data);
         
-        // 認証用のトークン生成
+        // 認証用のトークン、プロフィール作成
         $user->token = Str::random(32);
         $user->Confirm()->create(['token' => $user->token]);
+        $user->Profile()->create(['token' => $user->token]);
         
         // メール送信
-        SendMail::sendTo(Lang::get('auth.send_confirm'), 'emails.confirm', $user->toArray());
-        Session::flash('message', Lang::get('auth.send_confirm_mail'));
+        SendMail::sendTo(trans('auth.send_confirm'), 'emails.confirm', $user->toArray());
+        Session::flash('message', trans('auth.send_confirm_mail'));
+        
         return redirect('auth/login');
     }
     
@@ -90,15 +91,13 @@ class AuthController extends Controller
         // トークンチェック
         $confirm = Confirm::whereToken($token)->first();
         if (!$confirm) {
-            Session::flash('message', Lang::get('auth.token_failed'));
-            return redirect('auth/login');
+            return redirect('auth/login')->withErrors(['email' => trans('auth.token_failed')]);
         }
 
         // ユーザーチェック
         $user = $confirm->User;
         if (!$user) {
-            Session::flash('message', Lang::get('auth.not_exists_user'));
-            return redirect('auth/login');
+            return redirect('auth/login')->withErrors(['email' => trans('auth.not_exists_user')]);
         }
         
         // 認証登録
@@ -106,10 +105,7 @@ class AuthController extends Controller
         $user->confirmed_at = Carbon::now();
         $user->save();
         
-        // プロフィール登録
-        $user->Profile()->create(['user_id' => $user->id, 'token' => Str::random(32)]);
-        
-        Session::flash('message', Lang::get('auth.register_complete'));
+        Session::flash('message', trans('auth.register_complete'));
         return redirect('auth/login');
     }
 
@@ -146,8 +142,9 @@ class AuthController extends Controller
         
         // メール送信
         $confirm->name = $confirm->User->name;
-        SendMail::sendTo(Lang::get('auth.resend_confirm'), 'emails.confirm', $confirm->toArray());
-        Session::flash('message', Lang::get('auth.resend_confirm_mail'));
+        SendMail::sendTo(trans('auth.resend_confirm'), 'emails.confirm', $confirm->toArray());
+        Session::flash('message', trans('auth.resend_confirm_mail'));
+        
         return redirect()->guest('auth/login');
     }
     

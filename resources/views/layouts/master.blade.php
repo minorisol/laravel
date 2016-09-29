@@ -21,6 +21,11 @@
                 <div class="col-md-12 content fadeInLeft animated">
                     <div class="panel panel-info">
                         @yield('content')
+                        <div class="panel-footer">
+                            <ul class="pager">
+                                <li class="previous"><a href="[BACK]"><i class="fa fa-reply"></i> 戻る</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

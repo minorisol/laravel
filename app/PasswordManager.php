@@ -21,7 +21,7 @@ class PasswordManager extends Model
     protected $fillable = [
         'user_id',
         'title',
-        'account_id',
+        'account',
         'password',
         'url',
         'remark',
@@ -43,7 +43,7 @@ class PasswordManager extends Model
      */
     public static $rules = [
         'title' => 'required|max:255',
-        'account_id' => 'max:255',
+        'account' => 'max:255',
         'password' => 'max:255',
         'url' => 'url|max:255',
     ];

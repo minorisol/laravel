@@ -25,36 +25,23 @@
         </div>
     @endif
 
-    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
+    <form class="bs-component" role="form" method="POST" action="{{ url('/password/reset') }}">
         {!! csrf_field() !!}
         <input type="hidden" name="token" value="{{ $token }}">
-
-        <div class="form-group">
-            <label class="col-md-4 control-label">メールアドレス</label>
-            <div class="col-md-6">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-            </div>
+        <div class="form-group label-floating">
+            <label class="control-label" for="email">メールアドレス</label>
+            <input class="form-control" id="email" type="email" name="email" value="{{ old('email') }}" />
         </div>
-
-        <div class="form-group">
-            <label class="col-md-4 control-label">新しいパスワード</label>
-            <div class="col-md-6">
-                <input type="password" class="form-control" name="password">
-            </div>
+        <div class="form-group label-floating">
+            <label class="control-label" for="password">新しいパスワード</label>
+            <input class="form-control" id="password" type="password" name="password" value="{{ old('password') }}" />
         </div>
-
-        <div class="form-group">
-            <label class="col-md-4 control-label">新しいパスワード（確認用）</label>
-            <div class="col-md-6">
-                <input type="password" class="form-control" name="password_confirmation">
-            </div>
+        <div class="form-group label-floating">
+            <label class="control-label" for="password_confirmation">パスワード（確認用）</label>
+            <input class="form-control" id="password_confirmation" type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" />
         </div>
-
         <div class="form-group">
-            <div class="col-md-6 col-md-offset-4">
-                <button type="submit" class="btn btn-raised btn-primary">パスワードを再設定する</button>
-                <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
-            </div>
+            <button type="submit" class="btn btn-raised btn-primary"><i class="fa fa-key"></i> パスワードを再設定する</button>
         </div>
     </form>
 </div>

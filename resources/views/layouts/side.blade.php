@@ -2,7 +2,7 @@
 
 @section('side')
 <div class="sidebar left">
-    <div class="list-group" style="margin-top:20px;">
+    <div class="list-group">
         <div class="list-group-item">
             <div class="row-picture">
                 @if(auth()->guest())
@@ -25,16 +25,16 @@
                 さん
             </div>
         </div>
-        <span class="btn btn-default toggle visible-xs visible-sm" data-action="toggle" data-side="left" style="position:absolute;top:0;right:0;color:#fff;"><i class="fa fa-chevron-circle-left"></i></span>
+        <i class="fa fa-chevron-circle-left toggle visible-xs visible-sm" data-action="toggle" data-side="left"></i>
     </div>
     <nav class="menu">
         <ul>
             {{--
             <li class="withripple" data-target="#mail"><a><i class="fa fa-envelope-o"></i> メール</a></li>
-            <li class="withripple" data-target="#chat"><a><i class="fa fa-comments-o"></i> チャット</a></li>
             <li class="withripple" data-target="#timeline"><a><i class="fa fa-clock-o"></i> タイムライン</a></li>
             <li class="withripple" data-target="#blog"><a><i class="fa fa-pencil-square-o"></i> ブログ</a></li>
             --}}
+            <li class="withripple @if (strstr(Request::url(), 'chat')) active @endif"><a href="/chat"><i class="fa fa-comments-o"></i> チャット</a></li>
             <li class="withripple @if (strstr(Request::url(), 'friend')) active @endif"><a href="/friend"><i class="fa fa-users"></i> フレンド</a></li>
             <li class="withripple @if (strstr(Request::url(), 'weather')) active @endif"><a href="/weather"><i class="fa fa-sun-o"></i> 天気</a></li>
             <li class="withripple @if (strstr(Request::url(), 'map')) active @endif"><a href="/map"><i class="fa fa-map-marker"></i> 地図</a></li>

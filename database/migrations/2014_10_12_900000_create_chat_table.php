@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFriendTable extends Migration
+class CreateChatTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,9 @@ class CreateFriendTable extends Migration
      */
     public function up()
     {
-        Schema::create('friend', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->integer('friend_id');
-            $table->timestamp('confirmed_at')->nullable();
+        Schema::create('chat', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('subscriber');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateFriendTable extends Migration
      */
     public function down()
     {
-        Schema::drop('friend');
+        Schema::drop('chat');
     }
 }

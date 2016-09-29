@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFriendTable extends Migration
+class CreateChatMessageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,11 @@ class CreateFriendTable extends Migration
      */
     public function up()
     {
-        Schema::create('friend', function (Blueprint $table) {
+        Schema::create('chat_message', function (Blueprint $table) {
+            $table->integer('chat_id');
             $table->integer('user_id');
-            $table->integer('friend_id');
-            $table->timestamp('confirmed_at')->nullable();
+            $table->longText('message');
+            $table->integer('status')->default(0)->index();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateFriendTable extends Migration
      */
     public function down()
     {
-        Schema::drop('friend');
+        Schema::drop('chat_message');
     }
 }

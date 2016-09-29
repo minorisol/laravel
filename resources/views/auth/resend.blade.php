@@ -24,22 +24,14 @@
             </ul>
         </div>
     @endif
-
-    <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/resend') }}">
+    <form class="bs-component" role="form" method="POST" action="{{ url('/auth/resend') }}">
         {!! csrf_field() !!}
-
-        <div class="form-group">
-            <label class="col-md-4 control-label">メールアドレス</label>
-            <div class="col-md-6">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-            </div>
+        <div class="form-group label-floating">
+            <label class="control-label" for="email">メールアドレス</label>
+            <input class="form-control" id="email" type="email" name="email" value="{{ old('email') }}" />
         </div>
-
         <div class="form-group">
-            <div class="col-md-6 col-md-offset-4">
-                <button type="submit" class="btn btn-raised btn-primary">再送信</button>
-                <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
-            </div>
+            <button type="submit" class="btn btn-raised btn-primary"><i class="fa fa-send"></i> 再送信</button>
         </div>
     </form>
 </div>
