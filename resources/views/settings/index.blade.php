@@ -30,7 +30,11 @@
             プッシュ通知を受け取る　<input type="checkbox" id="push" name="push" />
         </label>
     </div>
-    <center><a href="/settings" class="btn btn-raised btn-primary">設定を保存する</a></center>
+</div>
+<div class="panel-body">
+    <div class="col-md-6 col-md-offset-4">
+        <a href="/settings" class="btn btn-raised btn-primary">設定を保存する</a>
+    </div>
 </div>
 @endsection
 

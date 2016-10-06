@@ -37,7 +37,7 @@ $(function(){
                 if(url == '[BACK]'){
                     setTimeout(function(){window.history.back();}, 1000);
                 } else {
-                    location.href = url;
+                    setTimeout(function(){location.href = url;}, 1000);
                 }
             });
         }

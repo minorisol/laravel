@@ -1,4 +1,4 @@
-{{-- resources/views/password/show.blade.php --}}
+{{-- resources/views/pm/show.blade.php --}}
 
 @extends('layouts.master')
 
@@ -43,7 +43,6 @@
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
                 <a href="/pm/edit/{{ $data->id }}" class="btn btn-raised btn-success"><i class="fa fa-pencil"></i> 編集</a>
-                <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
             </div>
         </div>
     </div>

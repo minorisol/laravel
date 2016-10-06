@@ -1,4 +1,4 @@
-{{-- resources/views/password/edit.blade.php --}}
+{{-- resources/views/pm/edit.blade.php --}}
 
 @extends('layouts.master')
 
@@ -65,7 +65,6 @@
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
                 <button type="submit" class="btn btn-raised btn-primary">登録</button>
-                <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
             </div>
         </div>
     </form>

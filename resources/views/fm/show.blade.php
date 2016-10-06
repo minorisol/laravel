@@ -1,4 +1,4 @@
-{{-- resources/views/password/index.blade.php --}}
+{{-- resources/views/fm/index.blade.php --}}
 
 @extends('layouts.master')
 
@@ -39,11 +39,6 @@
             <label class="col-md-4 control-label">メモ</label>
             <div class="col-md-6 control-div">
                 {!! nl2br(e($data->remark)) !!}
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-6 col-md-offset-4">
-                <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
             </div>
         </div>
     </div>

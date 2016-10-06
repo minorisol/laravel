@@ -1,4 +1,4 @@
-{{-- resources/views/password/index.blade.php --}}
+{{-- resources/views/pm/index.blade.php --}}
 
 @extends('layouts.master')
 
@@ -35,11 +35,12 @@
             @endforeach
         </tbody>
     </table>
-</div>
-<div class="panel-footer">
     {{ $datas->render() }}
-    <a href="/pm/create" class="btn btn-primary btn-raised"><i class="fa fa-edit"></i> 新規作成</a>
-    <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
+</div>
+<div class="panel-body">
+    <div class="col-md-6 col-md-offset-4">
+        <a href="/pm/create" class="btn btn-primary btn-raised"><i class="fa fa-edit"></i> 新規作成</a>
+    </div>
 </div>
 @endsection
 

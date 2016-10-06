@@ -41,7 +41,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label">パスワード</label>
             <div class="col-md-6">
-                <input type="password" class="form-control" name="" value="********">
+                <input type="password" class="form-control" name="" value="********" disabled="disabled">
                 <a href="/password/email" class="btn btn-raised btn-default">パスワードの再設定はこちら</a>
             </div>
         </div>
@@ -110,11 +110,10 @@
             </div>
         </div>
         <input type="hidden" id="lat" name="lat" value="{{ old('lat', $data->Profile->lat) }}" />
-        <input type="hidden" id="lng" name="lng" value="{{ old('lng', $data->Profile->lng) }}" />
+        <input type="hidden" id="lon" name="lon" value="{{ old('lon', $data->Profile->lon) }}" />
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
                 <button type="button" class="btn btn-raised btn-primary" onclick="codeAddress()"><i class="fa fa-save"></i> 登録</button>
-                <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
             </div>
             <div class="col-md-6 col-md-offset-4">
                 <a id="delete" class="btn btn-raised btn-warning"><i class="fa fa-remove"></i> このアカウントを削除する</a>
@@ -135,10 +134,10 @@ function codeAddress() {
         var geocoder = new google.maps.Geocoder();
     	geocoder.geocode( { 'address': address, 'language': 'ja'}, function(results, status) {
     		if (status==google.maps.GeocoderStatus.OK) {
-    			var latLngArr = results[0].geometry.location.toUrlValue();
-    			var Arrayltlg = latLngArr.split(",");
+    			var latLonArr = results[0].geometry.location.toUrlValue();
+    			var Arrayltlg = latLonArr.split(",");
                 $('#lat').val(Arrayltlg[0]);
-                $('#lng').val(Arrayltlg[1]);
+                $('#lon').val(Arrayltlg[1]);
     		}
 	        return $('form').submit();
     	});

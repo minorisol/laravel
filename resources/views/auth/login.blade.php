@@ -24,7 +24,7 @@
         </ul>
     </div>
     @endif
-    <form class="bs-component" role="form" method="POST" action="{{ secure_url('/auth/login') }}">
+    <form class="bs-component" role="form" method="POST" action="{{ url('/auth/login') }}">
         {!! csrf_field() !!}
         <div class="form-group label-floating">
             <label class="control-label" for="email">メールアドレス</label>

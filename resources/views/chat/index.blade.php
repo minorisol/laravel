@@ -47,7 +47,7 @@
             {{ $groups->render() }}
         </div>
     </div>
-    <div class="tab-pane fade active in" id="friend">
+    <div class="tab-pane fade" id="friend">
         <div class="list-group">
             @forelse($friends as $data)
             <div class="list-group-item">
@@ -76,7 +76,7 @@
         </div>
     </div>
     <div class="tab-pane fade" id="group">
-        <form class="bs-component" role="form" method="POST" action="{{ secure_url('/chat/create') }}">
+        <form class="bs-component" role="form" method="POST" action="{{ url('/chat/create') }}">
             {!! csrf_field() !!}
             <div class="list-group">
                 @forelse($friends as $data)
@@ -132,11 +132,6 @@
             <div class="col-md-6">
                 <div id="qrcode"></div>
             </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-6 col-md-offset-4">
-            <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
         </div>
     </div>
 </div>

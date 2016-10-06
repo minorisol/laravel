@@ -1,4 +1,4 @@
-{{-- resources/views/password/index.blade.php --}}
+{{-- resources/views/fm/index.blade.php --}}
 
 @extends('layouts.master')
 
@@ -33,16 +33,17 @@
             @endforeach
         </tbody>
     </table>
+    {{ $datas->render() }}
 </div>
 @else
 <div class="panel-body">
     現在、共有中のファイルはありません。
 </div>
 @endif
-<div class="panel panel-footer">
-    {{ $datas->render() }}
-    <a href="/fm/create" class="btn btn-primary btn-raised"><i class="fa fa-cloud-upload"></i> 新規アップロード</a>
-    <a href="[BACK]" class="btn btn-raised btn-default"><i class="fa fa-reply"></i> 戻る</a>
+<div class="panel-body">
+    <div class="col-md-6 col-md-offset-4">
+        <a href="/fm/create" class="btn btn-primary btn-raised"><i class="fa fa-cloud-upload"></i> 新規アップロード</a>
+    </div>
 </div>
 @endsection
 
